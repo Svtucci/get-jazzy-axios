@@ -56,3 +56,16 @@ app.get('/artist', (req, res) => {
 app.listen(PORT, () => {
     console.log('listening on port', PORT)
 });
+
+app.get('/songs', (req, res) => {
+    res.send(songListArray); 
+})
+
+app.post('/artist', (req, res) => {
+    console.log('POST request made for /artist');
+    console.log(req.body);
+    let artistToAdd = req.body
+    artistListArray.push(artistToAdd);
+    res.sendStatus(201); //success message
+
+});
